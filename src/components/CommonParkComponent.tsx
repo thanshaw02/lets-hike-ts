@@ -14,10 +14,9 @@ type CommonParkType = {
 
 const CommonParkComponent: FC<CommonParkType> = ({ park }) => {
   const { states, parkCode, designation, fullName, url, name } = park;
-  console.log(`Park: ${JSON.stringify(park)}`);
 
   return (
-    <Card key={name}>
+    <Card key={name} elevation={9}>
       <CardHeader title={fullName} subheader={designation} />
       <CardContent>
         <Typography variant="body1">
