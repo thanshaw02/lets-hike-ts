@@ -5,15 +5,17 @@ import { Activity } from "../model/nationalParkServiceResponse";
 
 type ActivitySelectionType = {
   name: string;
+  value: string;
   activities?: Array<Activity>;
 };
 
 const ActivitySelectionComponent: FC<ActivitySelectionType> = ({
   name,
+  value,
   activities,
 }) => {
   const [selectedActivity, setSelectedActivity] =
-    useState<string>("");
+    useState<string>(value);
 
   return (
     <Box>

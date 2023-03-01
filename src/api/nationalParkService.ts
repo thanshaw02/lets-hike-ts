@@ -1,5 +1,7 @@
-import NationalParkServiceResponse, {
+import {
   Activity,
+  NationalParkServiceActivityResponse,
+  NationalParkServiceParkResponse,
 } from "../model/nationalParkServiceResponse";
 
 // this needs to be securely stored somewhere
@@ -7,7 +9,7 @@ const API_KEY = "LXt0tnqEQBnK8mahXwWssY2eIiGcAawKWt48oeL5";
 const BASE_API_URL = "https://developer.nps.gov/api/v1";
 
 const getActivityCategories =
-  (): Promise<NationalParkServiceResponse> => {
+  (): Promise<NationalParkServiceActivityResponse> => {
     const endpoint = `${BASE_API_URL}/activities?api_key=${API_KEY}`;
     const requestInfo = {
       method: "GET",
@@ -26,7 +28,7 @@ const getActivityCategories =
 
 const getParksByActivity = (
   activity: Activity
-): Promise<NationalParkServiceResponse> => {
+): Promise<NationalParkServiceParkResponse> => {
   const endpoint = `${BASE_API_URL}/activities/parks?id=${activity.id}&api_key=${API_KEY}`;
   const requestInfo = {
     method: "GET",
