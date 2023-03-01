@@ -7,12 +7,12 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import NationalParkServicesAPI from "../api/nationalParkService";
+import NationalParkServicesAPI from "../../api/nationalParkService";
 import {
   Activity,
   NationalParkServiceActivityResponse,
   NationalParkServiceParkResponse,
-} from "../model/nationalParkServiceResponse";
+} from "../../model/nationalParkServiceResponse";
 import ActivitySelectionComponent from "./ActivitySelectionComponent";
 import NationalParkListComponent from "./NationalParkListComponent";
 

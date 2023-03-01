@@ -1,7 +1,7 @@
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import { Box } from "@mui/system";
 import { FC, useState } from "react";
-import { Activity } from "../model/nationalParkServiceResponse";
+import { Activity } from "../../model/nationalParkServiceResponse";
 
 type ActivitySelectionType = {
   name: string;
