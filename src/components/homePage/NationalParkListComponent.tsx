@@ -8,6 +8,9 @@ type NationalParkListType = {
   parkResponse?: NationalParkServiceParkResponse;
 };
 
+// Left off here: issue with my typing, TS doesn't think "parks" exists in the "ParkResponse" type
+// "parks" does in fact exist on the "ParkResponse" type, so something weird happening
+
 const NationalParkListComponent: FC<NationalParkListType> = ({
   isLoaded,
   parkResponse,

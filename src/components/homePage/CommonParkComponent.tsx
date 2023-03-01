@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { Park } from "../../model/nationalParkServiceResponse";
+import { ParkBase as Park } from "../../model/nationalParkServiceResponse";
 
 type CommonParkType = {
   park: Park;
@@ -30,7 +30,9 @@ const CommonParkComponent: FC<CommonParkType> = ({ park }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={() => navigate(`/park/${parkCode}`)}>
+        <Button
+          onClick={() => navigate(`/park?parkCode=${parkCode}`)}
+        >
           Learn More
         </Button>
       </CardActions>

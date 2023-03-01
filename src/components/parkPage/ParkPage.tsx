@@ -1,8 +1,16 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
-type ParkPageProps = {};
+const ParkPage: FC<unknown> = () => {
+  const [searchParams] = useSearchParams();
 
-const ParkPage: FC<ParkPageProps> = (props) => {
+  useEffect(() => {
+    const parkCode = searchParams.get("parkCode");
+    if (parkCode) {
+      console.log(`Park code sent from home page: ${parkCode}`);
+    }
+  }, []);
+
   return <>Under Construction</>;
 };
 

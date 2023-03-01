@@ -8,7 +8,7 @@ const routes = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/park/:parkId",
+    path: "/park",
     element: <ParkPage />,
   },
 ]);
