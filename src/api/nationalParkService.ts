@@ -1,6 +1,7 @@
 import {
   Activity,
   NationalParkServiceActivityResponse,
+  NationalParkServiceParkAmenitiesResponse,
   NationalParkServiceParkResponse,
 } from "../model/nationalParkServiceResponse";
 
@@ -45,9 +46,29 @@ const getParksByActivity = (
   });
 };
 
+const getAmenitiesByParkCode = (
+  parkCode: string
+): Promise<NationalParkServiceParkAmenitiesResponse> => {
+  const endpoint = `${BASE_API_URL}/amenities/parksplaces?parkCode=${parkCode}&api_key=${API_KEY}`;
+  const requestInfo = {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  };
+
+  return new Promise((resolve, reject) => {
+    fetch(endpoint, requestInfo).then((response) => {
+      if (!response.ok) reject(response.status);
+      resolve(response.json());
+    }, reject);
+  });
+};
+
 const NationalParkServicesAPI = {
-  getParksByActivity,
   getActivityCategories,
+  getAmenitiesByParkCode,
+  getParksByActivity,
 };
 
 export default NationalParkServicesAPI;

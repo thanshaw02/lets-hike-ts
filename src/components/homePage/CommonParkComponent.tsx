@@ -1,18 +1,21 @@
+import { FC } from "react";
 import {
+  Button,
   Card,
+  CardActions,
   CardContent,
   CardHeader,
-  Link,
   Typography,
 } from "@mui/material";
-import { FC } from "react";
-import { Park } from "../model/nationalParkServiceResponse";
+import { useNavigate } from "react-router";
+import { ParkBase as Park } from "../../model/nationalParkServiceResponse";
 
 type CommonParkType = {
   park: Park;
 };
 
 const CommonParkComponent: FC<CommonParkType> = ({ park }) => {
+  const navigate = useNavigate();
   const { states, parkCode, designation, fullName, url, name } = park;
 
   return (
@@ -25,12 +28,14 @@ const CommonParkComponent: FC<CommonParkType> = ({ park }) => {
         <Typography variant="body2">
           National park code: {parkCode}
         </Typography>
-        <Link href={url}>
-          <Typography variant="subtitle1">
-            More information can be found here
-          </Typography>
-        </Link>
       </CardContent>
+      <CardActions>
+        <Button
+          onClick={() => navigate(`/park?parkCode=${parkCode}`)}
+        >
+          Learn More
+        </Button>
+      </CardActions>
     </Card>
   );
 };
