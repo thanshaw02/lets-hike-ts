@@ -23,6 +23,7 @@ const ActivitySelectionComponent: FC<ActivitySelectionType> = ({
       <Select
         fullWidth
         name={name}
+        size="small"
         id="activity-input"
         value={selectedActivity}
         onChange={(activity) =>

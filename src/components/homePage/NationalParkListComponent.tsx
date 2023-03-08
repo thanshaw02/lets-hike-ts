@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CircularProgress, Grid } from "@mui/material";
 import { NationalParkServiceParkResponse } from "../../model/nationalParkServiceResponse";
-import CommonParkComponent from "./CommonParkComponent";
+import ParkActivityComponent from "./ParkActivityComponent";
 
 type NationalParkListType = {
   isLoaded: boolean;
@@ -27,18 +27,12 @@ const NationalParkListComponent: FC<NationalParkListType> = ({
       {isLoaded ? (
         <>
           {/* using first index here only because we are getting one result currently, this does need to change though */}
-          {parkResponse?.data[0].parks.map((park) => {
-            return (
-              <Grid
-                item
-                key={park.parkCode}
-                xs={4}
-                sx={{ mr: 2, mt: 3 }}
-              >
-                <CommonParkComponent park={park} />
-              </Grid>
-            );
-          })}
+          {parkResponse?.data.map((pr) => (
+            <ParkActivityComponent 
+              key={pr.id}
+              parkActivityResponse={pr}
+            />
+          ))}
         </>
       ) : (
         <CircularProgress />
